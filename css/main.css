@@ -1,0 +1,271 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 170vh;
+
+}
+
+/*Header area*/
+header {
+    height: 80px;
+    background-color: lightcoral;
+}
+
+.logo {
+    position: absolute;
+    width: 100%;
+    padding: 8px 0 0 90px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+label{
+    position: absolute;
+    padding: 52px 0 0 85px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.header_img {
+    position: absolute;
+    right: 100px;
+    width: 150px;
+    height: 80px;
+}
+
+main{
+    min-height: calc(170vh - 80px - 150px);
+}
+/*Search area*/
+.search_area {
+    position: absolute;
+    right: 100px;
+    padding: 30px 0;
+    z-index: 1;
+}
+
+.search_box{
+    padding: 10px 5px 5px 5px;
+}
+
+.search_icon{
+    padding: 0 3px 3px 3px;
+    font-size: 15px;
+    color: #0e0d0d;
+    background: #fff;
+    cursor: pointer;
+}
+
+/*List top film area*/
+.div1{
+    position: absolute;
+    margin-top: 30px;
+}
+.title1{
+    position: absolute;
+    padding: 20px 0 0 90px;
+    color:rgb(243, 110, 154);
+    font-size: 30px;
+}
+
+.list_top_film{
+    width: 90%;
+    margin: 70px auto;
+    box-sizing: border-box;
+    background: rgb(252, 225, 229);
+    border-top-right-radius: 30%;
+    border-bottom-right-radius: 10%;
+    border-top-left-radius: 30%;
+    border-bottom-left-radius: 10%;
+}
+
+.main{
+    width: 80%;
+    height: 560px;
+    position: relative;
+    margin-left: 170px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.main_image{
+    transition: 1s;
+}
+
+.list_image{
+    display: flex;
+    justify-content: space-between;
+}
+
+.list_image div{
+    flex: 1;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+
+.list_image div:hover{
+    opacity:1;
+    background-color: hotpink;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: crisp-edges;
+}
+
+.control{
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    opacity: 0.65;
+}
+
+.control:hover{
+    opacity:1;
+}
+
+.prev{
+    left: 10px;
+}
+
+.next{
+    right: 10px;
+}
+
+.active{
+    background: hotpink;
+}
+
+@keyframes slideLeft {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+/*List top actor*/
+.div2{
+    position: absolute;
+}
+
+.title2{
+    position: relative;
+    padding: 850px 0 0 90px;
+    color:rgb(243, 110, 154);
+    font-size: 30px;
+}
+
+.list_top_actor {
+    box-sizing: border-box;
+    padding: 20px 0 0 90px;
+    max-width:700px;
+    position: relative;    
+}
+
+.slide{
+    border: 4px solid rgb(243, 110, 154);
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    height: 450px;
+}
+
+.list_top_actor .dotlist {
+    width:15px;
+    height:15px;
+    background-color:#999;
+    display:inline-block;
+    border-radius:50%;
+    cursor:pointer;    
+    margin-top:10px;
+}
+
+.list_top_actor .dotlist:hover {
+    background-color:#ccc;    
+}
+
+.list_top_actor .dotlist.active {
+    background-color:black;    
+}
+
+/*List new*/
+.div3{
+    float: right;
+    margin-top: 850px;
+}
+
+.title3{
+    position: relative;
+    color:rgb(243, 110, 154);
+    font-size: 30px;
+}
+
+.rental_rank{
+    width: 900px;
+    height: 430px;
+    margin-right: 90px;
+    margin-top: 30px;
+    background: rgb(252, 225, 229);
+    border-top-right-radius: 20%;
+    border-bottom-right-radius: 20%;
+    border-top-left-radius: 20%;
+    border-bottom-left-radius: 20%;
+}
+.rental_rank_list{
+    list-style-type: none;
+    text-align: center;
+    padding: 55px 0;
+    font-size: 20px;
+    line-height: 30px;
+    text-decoration: none;
+    color: rgb(252, 101, 151);
+}
+
+.item a{
+
+}
+.item:hover{
+    opacity:0.5;
+}
+
+/*Footer*/
+.footer{ 
+    width: 100%;
+    height: 150px;
+    background-color: lightcoral;
+  }
+.footer_img{
+    position: relative;
+    top: 10px;
+    left: 40%;
+    width: 350px;
+    height: 90%;
+}
+
