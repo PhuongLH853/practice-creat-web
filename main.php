@@ -142,7 +142,76 @@
         </div>
         </div>
         <!--End new rental block-->  
+
+        <!--begin booking-->
+        <div class="div4">
+        <h3 class = "title4">HẸN THUÊ TRƯỚC</h3>
+        <div class = "booking">
+            <form id="booking_form" method="POST">
+                <input class="book_name" type="text" id="book_name" name="book_name" placeholder ="Họ và tên" size="30" required>
+                <input class="email" type="email" id="email" name="email" placeholder ="Email" size="40" required>
+                <input class="book_date" type="date" id="book_date" name="book_date" required>
+                <button class="sub_btn" type="submit" name="booking">Hẹn thuê</button>
+            </form>
+            <?php
+                // Kết nối đến cơ sở dữ liệu PostgreSQL
+                $host = "localhost";
+                $port = "5432";
+                $dbname = "DB_training";
+                $user = "postgres";
+                $password = "Lehaphuong@123";
+
+                // Kết nối đến cơ sở dữ liệu
+                try {
+                    $conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");          
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                // Câu lệnh SQL tạo bảng
+                $sql = "CREATE TABLE IF NOT EXISTS bookings (
+                    id SERIAL PRIMARY KEY,
+                    book_name VARCHAR(100) NOT NULL,
+                    email VARCHAR(100) NOT NULL,
+                    book_date DATE NOT NULL
+                )";
+
+                // Thực thi câu lệnh tạo bảng
+                $conn->exec($sql);
+
+                // Kiểm tra xem có dữ liệu được gửi từ form hay không
+                if (isset($_POST['booking'])) {
+                    $book_name = $_POST['book_name'];
+                    $email = $_POST['email'];
+                    $book_date = $_POST['book_date'];
+
+                    // Câu lệnh SQL thêm dữ liệu vào bảng
+                    $sql = "INSERT INTO bookings (book_name, email, book_date) VALUES (:book_name, :email, :book_date)";
+
+                    // Chuẩn bị câu lệnh SQL
+                    $stmt = $conn->prepare($sql);
+
+                    // Gán giá trị vào các tham số
+                    $stmt->bindParam(':book_name', $book_name);
+                    $stmt->bindParam(':email', $email);
+                    $stmt->bindParam(':book_date', $book_date);
+
+                    // Thực thi câu lệnh thêm dữ liệu
+                    if ($stmt->execute()) {
+                        echo '<div class="success-message">Hẹn thuê thành công!</div>';
+                    } else {
+                        echo '<div class="error-message">Hẹn thuê thất bại!</div>';
+                    }
+                }
+            } catch (PDOException $e) {
+                echo "Lỗi: " . $e->getMessage();
+            }
+            // Đóng kết nối
+            $conn = null;
+            ?>
+            <div id="message"></div>
+        </div>
+        <!--end booking-->
     </main>   
+
     <!--Begin footer-->
     <footer class="footer">
             <img class="footer_img" src="./img/footer_image.png">

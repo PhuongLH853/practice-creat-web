@@ -6,7 +6,7 @@
 }
 
 body{
-    min-height: 170vh;
+    min-height: 200vh;
 
 }
 
@@ -41,7 +41,7 @@ label{
 }
 
 main{
-    min-height: calc(170vh - 80px - 150px);
+    min-height: calc(200vh - 80px - 150px);
 }
 /*Search area*/
 .search_area {
@@ -248,11 +248,62 @@ img{
     color: rgb(252, 101, 151);
 }
 
-.item a{
-
-}
 .item:hover{
     opacity:0.5;
+}
+
+/*booking*/
+.div4{
+    position: absolute;
+}
+
+.title4{
+    position: relative;
+    padding: 1450px 0 0 90px;
+    color:rgb(243, 110, 154);
+    font-size: 30px;
+}
+
+.booking{
+    padding: 20px 0 0 90px;
+}
+
+.book_name{
+    padding: 10px 5px 5px 5px;
+}
+
+.email{
+    padding: 10px 5px 5px 5px;    
+}
+
+.book_date{
+    padding: 10px 5px 5px 5px;
+}
+
+.sub_btn{
+    padding: 0 3px 3px 3px;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: rgba(248, 141, 177, 0.973);
+    color: white;
+    font-weight: bold;
+    border-width: 0px;
+    width: 100px;
+    height: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.success-message {
+    color: rgb(243, 110, 154);
+    font-weight: bold;
+    padding: 10px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    padding: 10px;
 }
 
 /*Footer*/
