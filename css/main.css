@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
 
@@ -200,7 +200,7 @@ img{
 .list_top_actor .dotlist {
     width:15px;
     height:15px;
-    background-color:#999;
+    background-color:#ffbde6;
     display:inline-block;
     border-radius:50%;
     cursor:pointer;    
@@ -212,7 +212,7 @@ img{
 }
 
 .list_top_actor .dotlist.active {
-    background-color:black;    
+    background-color:#fc3bb2e7;    
 }
 
 /*List new*/
