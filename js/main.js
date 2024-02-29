@@ -1,3 +1,15 @@
+//Search
+document.addEventListener('DOMContentLoaded', function() {
+    // Lấy thẻ button
+    var button = document.getElementById('yourButtonId'); // Thay 'yourButtonId' bằng id thực tế của button
+
+    // Thêm sự kiện click cho button
+    button.addEventListener('click', function() {
+        // Chuyển hướng sang trang ./dummy.html
+        window.location.href = './dummy.html';
+    });
+});
+
 //List top film
 
 var mainImg = document.querySelector('.main_image')
