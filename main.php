@@ -27,11 +27,53 @@
     <main>
         <!--search area-->
         <div class="search_area">
-            <input class="search_box" type="text" placeholder ="Search...">
-            <button type="submit">
-                <i class="search_icon ti-search"></i>
-            </button>
+            <form action="" method="GET">
+                <input class="search_box" type="text" name="search_query" placeholder ="Tìm kiếm...">
+                <button type="submit">
+                    <i class="search_icon ti-search"></i>
+                </button>
+                <div id="suggestion"></div>
+            </form>    
         </div>
+        <?php
+            // Thông tin kết nối đến cơ sở dữ liệu PostgreSQL
+            $host = "localhost";
+            $port = "5432";
+            $dbname = "DB_training";
+            $user = "postgres";
+            $password = "Lehaphuong@123";
+
+            // Kết nối đến cơ sở dữ liệu
+            try {
+                $conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
+            } catch (PDOException $e) {
+                die("Kết nối thất bại: " . $e->getMessage());
+            }
+            
+            // Lấy từ khóa tìm kiếm từ biểu mẫu
+            if (isset($_GET['search_query'])) {
+                $searchKeyword = htmlspecialchars($_GET['search_query']); // Ngăn chặn SQL injection
+
+                // Thực hiện truy vấn tìm kiếm
+                $sql = "SELECT * FROM film WHERE title LIKE :searchKeyword";
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam(':searchKeyword', $searchKeyword, PDO::PARAM_STR);
+                $stmt->execute();
+
+                // Hiển thị kết quả
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                if (!empty($result)) {
+                    foreach ($result as $row) {
+                        // Xử lý và hiển thị kết quả với liên kết
+                        echo "<a class='result-link' href='./dummy.html'>" . $row["title"] . "</a><br>";
+                    }
+                } else {
+                    echo "Không tìm thấy kết quả.";
+                }
+            }
+            // Đóng kết nối
+            $conn = null;
+        ?>
         <!--end search area-->
 
         <!--Begin list top film block-->
